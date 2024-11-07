@@ -8,7 +8,17 @@ module.exports = {
 	module: {
 		rules: [
 			{test: /\.css$/i, use: ['style-loader', 'css-loader']},
-			{test: /\.(gif|png|jpe?g|svg)$/i, use: 'image-webpack-loader'},
+			{
+				test: /\.(gif|png|jpe?g|svg)$/i,
+				use: [
+					'file-loader',
+					{
+						loader: 'image-webpack-loader',
+						options: {
+							disable:true,
+						}
+					}
+				]},
 		]
 	}
 }
