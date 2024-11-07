@@ -6,6 +6,9 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		rules: [{test: /\.css$/i, use: ['style-loader', 'css-loader']}]
+		rules: [
+			{test: /\.css$/i, use: ['style-loader', 'css-loader']},
+			{test: /\.(gif|png|jpe?g|svg)$/i, use: 'image-webpack-loader'},
+		]
 	}
 }
