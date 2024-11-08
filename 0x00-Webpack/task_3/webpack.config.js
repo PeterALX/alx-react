@@ -1,10 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	mode: 'development',
-	entry:'./js/dashboard_main.js',
+	entry: {
+		header:'./modules/header/header.js', 
+		body:'./modules/body/body.js', 
+		footer:'./modules/footer/footer.js', 
+	},
 	output: {
 		path: __dirname + '/public',
-		filename: 'bundle.js',
+		filename: '[name].bundle.js',
 		clean:true,
 	},
 	devServer: {
