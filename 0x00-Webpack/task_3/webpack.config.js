@@ -1,14 +1,16 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry:'./js/dashboard_main.js',
-	watch: true,
 	output: {
 		path: __dirname + '/public',
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		clean:true,
 	},
 	devServer: {
 		port: 8564,
 	},
+	plugins: [new HtmlWebpackPlugin()],
 	module: {
 		rules: [
 			{test: /\.css$/i, use: ['style-loader', 'css-loader']},
@@ -30,3 +32,6 @@ module.exports = {
 		]
 	}
 }
+// clean-webpack-plugin
+// path.resolve(__dirname,
+// ./public
