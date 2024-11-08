@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
 module.exports = {
 	mode: 'development',
 	entry: {
@@ -7,7 +8,7 @@ module.exports = {
 		footer:'./modules/footer/footer.js', 
 	},
 	output: {
-		path: __dirname + '/public',
+		path: path.resolve(__dirname, 'public'),
 		filename: '[name].bundle.js',
 		clean:true,
 	},
