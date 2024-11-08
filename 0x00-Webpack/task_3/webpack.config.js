@@ -2,6 +2,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path')
 module.exports = {
 	mode: 'development',
+	devtool: 'inline-source-map',
+	optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 	entry: {
 		header:'./modules/header/header.js', 
 		body:'./modules/body/body.js', 
