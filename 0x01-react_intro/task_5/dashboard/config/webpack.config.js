@@ -1,4 +1,5 @@
 const path = require('path')
+
 module.exports = {
 	mode: 'development',
 	entry: './src/index.js',
@@ -7,12 +8,12 @@ module.exports = {
 		extensions: ['.js', '.jsx'],
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, '..', 'dist'),
 		filename: 'bundle.js'
 	},
 	devServer: {
 		static:{
-			directory: path.join(__dirname, 'dist'),
+			directory: path.resolve(__dirname, '..', 'dist'),
 		},
 		port:3000,
 		hot: true,
@@ -26,15 +27,7 @@ module.exports = {
 			},
 			{
 				test: /\.(js|jsx)$/i,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [
-							'@babel/preset-env',
-							['@babel/preset-react', {"runtime":"automatic"}],
-						]
-					}
-				}
+				use: 'babel-loader', 
 			}
 		]
 	}
