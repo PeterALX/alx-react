@@ -23,11 +23,12 @@ module.exports = {
 			{test: /\.css$/i, use: ['style-loader', 'css-loader']},
 			{
 				test: /\.(gif|png|jpe?g|svg)$/i,
-				use: ['file-loader']
+				use: ['image-webpack-loader', 'file-loader']
 			},
 			{
 				test: /\.(js|jsx)$/i,
-				use: 'babel-loader', 
+				exclude: /node_modules/,
+				use: 'babel-loader',
 			}
 		]
 	}
