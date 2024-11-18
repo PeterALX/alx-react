@@ -1,0 +1,36 @@
+.Notifications {
+  border: 2px dotted #e0354b;
+  padding: 10px 20px;
+  position: relative;
+  width: 500px;
+}
+
+#notifications-drawer {
+  position: absolute;
+  right: 30px;
+}
+
+.menuItem {
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+
+li[data-priority="default"] {
+  color: blue;
+}
+
+li[data-priority="urgent"] {
+  color: red;
+}
+
+li[data-notification-type="default"] {
+  color: blue;
+}
+
+li[data-notification-type="urgent"] {
+  color: red;
+}

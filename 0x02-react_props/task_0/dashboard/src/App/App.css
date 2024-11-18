@@ -1,0 +1,11 @@
+/* there is no longer an App-body */
+.App-body {
+  height: 70vh;
+  font-size: 25px;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.App-body p {
+  font-size: 25px;
+}
+
