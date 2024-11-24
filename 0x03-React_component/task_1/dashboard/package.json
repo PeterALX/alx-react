@@ -10,7 +10,7 @@
 		"start": "webpack-dev-server --mode development --config config/webpack.config.js"
 	},
 	"jest": {
-		"verbose": true,
+		"verbose": false,
 		"setupFilesAfterEnv": [
 			"<rootDir>config/setupTests.js"
 		],
