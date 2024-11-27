@@ -53,4 +53,42 @@ describe('Notifications', () => {
 		expect(consoleSpy).toHaveBeenCalledWith('Notification 3 has been marked as read')
 		consoleSpy.mockRestore()
 	})
+	test('passing the same listNotifications doesn\'t cause a rerender', () => {
+		const wrapper = shallow(
+			<Notifications
+				displayDrawer={true}
+				listNotifications={listNotifications}
+			/>
+		)
+		const newListNotifications = [
+			{ id: 1, type: "default", value: "New course available" },
+			{ id: 2, type: "urgent", value: "New resume available" },
+			{ id: 3, type: "urgent", html: { __html: getLatestNotification() } },
+		];
+
+		const spy = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate')
+		wrapper.setProps({ listNotifications: newListNotifications })
+		expect(spy).toHaveReturnedWith(false)
+		spy.mockRestore()
+	})
+	test('passing a longer listNotifications causes a rerender', () => {
+		const wrapper = shallow(
+			<Notifications
+				displayDrawer={true}
+				listNotifications={listNotifications}
+			/>
+		)
+		const newListNotifications = [
+			{ id: 1, type: "default", value: "New course available" },
+			{ id: 2, type: "urgent", value: "New resume available" },
+			{ id: 3, type: "urgent", html: { __html: getLatestNotification() } },
+
+			{ id: 4, type: "urgent", value: "Touch some grass" },
+		];
+
+		const spy = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate')
+		wrapper.setProps({ listNotifications: newListNotifications })
+		expect(spy).toHaveReturnedWith(true)
+		spy.mockRestore()
+	})
 })
